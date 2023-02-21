@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<application xmlns="http://ns.adobe.com/air/application/50.0">
+	<id>air.NewFontRenderBug</id>
+	<versionNumber>0.1</versionNumber>
+	<supportedProfiles>mobileDevice</supportedProfiles>
+	<filename>NewFontRenderBug</filename>
+	<name>NewFontRenderBug</name>
+	<description>test</description>
+	<copyright>gs</copyright>
+
+	<initialWindow>
+		<title>NewFontRenderBug</title>
+		<content>NewFontRenderBug.swf</content>
+		<visible>true</visible>
+		<fullScreen>true</fullScreen>
+		<autoOrients>true</autoOrients>
+		<aspectRatio>landscape</aspectRatio>
+		<systemChrome>standard</systemChrome>
+		<renderMode>direct</renderMode>
+		<depthAndStencil>true</depthAndStencil>
+	</initialWindow>
+
+	<icon>
+		<image48x48>icons/icon_48.png</image48x48>
+		<image57x57>icons/icon_57.png</image57x57>
+		<image72x72>icons/icon_72.png</image72x72>
+		<image76x76>icons/icon_76.png</image76x76>
+		<image96x96>icons/icon_96.png</image96x96>
+		<image114x114>icons/icon_114.png</image114x114>
+		<image120x120>icons/icon_120.png</image120x120>
+		<image144x144>icons/icon_144.png</image144x144>
+		<image152x152>icons/icon_152.png</image152x152>
+		<!--<image512x512>icons/icon_512.png</image512x512>-->
+	</icon>
+
+	<android>
+		<!--<newFontRenderingFromAPI>99999</newFontRenderingFromAPI>-->
+		<manifestAdditions><![CDATA[
+			<manifest android:installLocation="auto">
+				<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="31"/>
+				<uses-feature android:required="true" android:name="android.hardware.touchscreen.multitouch"/>
+				<supports-screens android:smallScreens="false" android:normalScreens="true" android:largeScreens="true" android:xlargeScreens="true"/>
+
+				<application android:isGame="true">
+					<meta-data android:name="android.max_aspect" android:value="2.4"/>
+					<activity android:maxAspectRatio="2.4">
+						<intent-filter>
+							<action android:name="android.intent.action.MAIN"/>
+							<category android:name="android.intent.category.LAUNCHER"/>
+						</intent-filter>
+						<intent-filter>
+							<action android:name="android.intent.action.VIEW"/>
+							<category android:name="android.intent.category.BROWSABLE"/>
+							<category android:name="android.intent.category.DEFAULT"/>
+							<data android:scheme="test"/>
+						</intent-filter>
+					</activity>
+
+				</application>
+			</manifest>
+		]]></manifestAdditions>
+	</android>
+</application>
